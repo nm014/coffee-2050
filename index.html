@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
     <title>コーヒー2050年問題 予測ダッシュボード</title>
+    <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>コーヒー2050年問題 シミュレーター</h1>
-        <nav>
-            <ul>
-                <li><a href="">なび１</a></li>
-                <li><a href="">なび２</a></li>
-                <li><a href="">なび３</a></li>
-                <li><a href="">なび３</a></li>
+        <nav class="nav">
+            <div class="nav-logo"><a href="#home"><img src="icon.png" class="nav-icon" alt="" draggable="false"></a></div>
+            <ul class="nav-links">
+                <li><a href="#about">コーヒ-2050年問題</a></li>
+                <li><a href="#main-chart">生産量シミュレーション</a></li>
+                <li><a href="#sankey">1杯の値段</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="hero">
+        <div class="hero" id="home">
             <video autoplay loop muted playsinline class="hero-video">
                 <source src="latte-art.mp4" type="video/mp4">
             </video>
@@ -33,13 +33,52 @@
             <div class="hero-content">
                 <h1 class="catch-copy">2050年、</h1>
                 <p class="sub-copy"><span class="highlight">コーヒーが消える？</span></p>
-                <h2>気候変動がもたらすコーヒーベルトの危機と未来の予測</h2>
             </div>
         </div>
 
-        <p>気候変動が世界のコーヒー生産に与える影響</p>
-        <div id="main-chart" style="width: 960px; height: 500px;"></div>
+        <div id="about">
+            <h2 class="section-title">「コーヒー2050年問題」とは？</h2>
+            <p class="section-desc">気候変動がもたらす世界のコーヒー栽培への重大な危機</p>
+            
+            <div class="about-card">
+                <p>地球温暖化に伴う気温上昇と異常気象により、2050年までに<b>アラビカ種コーヒーの栽培適地が世界全体で約50%減少する</b>と予測されています。これが「コーヒー2050年問題」です。</p>
+                <div class="about-grid">
+                    <div class="about-item">
+                        <h3>気温上昇とサビ病の拡大</h3>
+                        <p>コーヒーノキ（特に高品質なアラビカ種）は非常に繊細で、平均気温が上昇すると「サビ病」などの病害虫が急増し、収量が激減します。</p>
+                    </div>
+                    <div class="about-item">
+                        <h3>生産者の経済的困窮</h3>
+                        <p>気候ショックによる不作は小規模農家の収益を直撃し、離農や他作物への転作が進むことで供給不足がさらに加速します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-chart">
+            <h2 class="section-title">データで見る：気候変動と生産量シミュレーション</h2>
+            <p class="section-desc">コーヒーベルト 主要5カ国の2020年〜2050年予測データ（地図をクリックして選択）</p>
+
+            <div class="chart-card">
+                <div id="map"></div>
+                <div id="chart"></div>
+            </div>
+        </div>
+
+        <div id="sankey-diagram" class="sankey-card">        
+        <div id="sankey" class="flourish-embed flourish-sankey" data-src="visualisation/29660468">
+            <script src="https://public.flourish.studio/resources/embed.js"></script>
+            <noscript>
+                <img src="https://public.flourish.studio/visualisation/29660468/thumbnail" width="100%" alt="sankey visualization" />
+            </noscript>
+            </div>
+        </div>
     </main>
+
+    <footer>
+        <p>コーヒーベルトの気候変動分析</p>
+        <p>データ出典：<a href="https://apps.fas.usda.gov/psdonline/app/index.html#/app/advQuery" target="_blank">USDA FAS</a> | <a href="https://climateknowledgeportal.worldbank.org/download-data#" target="_blank">World Bank CCKP (CMIP6)</a></p></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
